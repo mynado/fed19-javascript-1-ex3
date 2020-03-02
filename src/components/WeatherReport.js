@@ -6,7 +6,6 @@ const WeatherReport = props => {
 	const temp = Math.round(props.weather.report.main.temp)
 	const humidity = Math.round(props.weather.report.main.humidity)
 
-	console.log(props.weather)
 	return (
 		<div id="WeatherReport">
 			<div className="card bg-dark text-white">
@@ -15,7 +14,7 @@ const WeatherReport = props => {
 				?
 				(
 					<div className="alert alert-warning" role="alert">
-					Oops something went wrong! Are you sure this city exists?
+					Oops something went wrong! Are you sure '{props.weather.city}' exists?
 					</div>
 				)
 				:
@@ -32,4 +31,3 @@ const WeatherReport = props => {
 }
 
 export default WeatherReport;
-

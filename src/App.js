@@ -10,6 +10,10 @@ class App extends React.Component {
 		city: '',
 	}
 
+	componentDidMount() {
+		this.getWeather('malmö')
+	}
+
 	getWeather = (city) => {
 		axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=a9f6719e37f20890ebff5d91724dec1f`)
 		.then(response => {
@@ -20,9 +24,9 @@ class App extends React.Component {
 			})
 		})
 		.catch(error => {
-			console.error(error);
 			this.setState({
 				errorMessage: true,
+				city: city,
 			})
 		});
 	}
