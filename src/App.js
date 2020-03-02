@@ -22,6 +22,7 @@ class App extends React.Component {
 		.catch(error => {
 			this.setState({
 				errorMessage: true,
+				report: null,
 				city: city,
 			})
 		});
@@ -48,6 +49,16 @@ class App extends React.Component {
 								errorMessage={this.state.errorMessage}
 								report={this.state.report}
 							/>
+						)
+						: ''
+					}
+
+					{
+						this.state.errorMessage
+						? (
+							<div className="alert alert-warning" role="alert">
+								Oops something went wrong! Are you sure '{this.state.city}' exists?
+							</div>
 						)
 						: ''
 					}

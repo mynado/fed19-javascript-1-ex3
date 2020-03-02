@@ -10,21 +10,17 @@ const WeatherReport = props => {
 		<div id="WeatherReport">
 			<div className="card bg-dark text-white">
 			{
-				props.errorMessage
+				props
 				?
-				(
-					<div className="alert alert-warning" role="alert">
-					Oops something went wrong! Are you sure '{props.weather.city}' exists?
-					</div>
-				)
-				:
 				(
 				<div className="card-body text-center">
 					<h5 className="card-title">The temperature in {city} is {temp} &deg; C right now, with a humidity of {humidity} %.</h5>
 					<WeatherConditions conditions={props.weather.report.weather}/>
 				</div>
 				)
+				: ''
 			}
+
 			</div>
 		</div>
 	)
